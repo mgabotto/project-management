@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import NavBar from './components/NavBar/NavBar';
+import Table from './components/Table'
+
 
 
 
@@ -13,7 +15,7 @@ const App = () => {
       <NavBar />
       <Switch>
         <Route path='/'>
-          <h1> prueba</h1>
+          <Table />
         </Route>
         {/* <Route>
 
