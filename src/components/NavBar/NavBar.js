@@ -2,13 +2,14 @@ import React from 'react';
 import { NavLink, NavWrapper, LinkWrapper } from './NavBarElementes'
 
 const NavBar = () => {
+    console.log('dfgdfg');
     return (
         <>
             <NavWrapper>
                 <LinkWrapper>
-                    <NavLink> Link</NavLink>
-                    <NavLink> Link</NavLink>
-                    <NavLink> Link</NavLink>
+                    <NavLink to='/'> Link</NavLink>
+                    <NavLink to='/'> Link</NavLink>
+                    <NavLink to='/'> Link</NavLink>
                 </LinkWrapper>
 
             </NavWrapper>
