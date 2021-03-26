@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background: #CEDADB;
+    background: #FFFFFF;
 }
 
 `

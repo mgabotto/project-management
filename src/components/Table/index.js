@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { db } from '../../data'
-import Cell from './Cell'
 import { StyledTable } from './TableStyle'
+import TaskDescription from './TaskDescription'
+import TaskRow from './TaskRow'
 
 const Table = () => {
+
+
+    const [display, setDisplay] = useState(false);
+    // <button onClick={setDisplay(true)}> Display</button>
+
+    const isClicked = () => {
+        setDisplay(true)
+        console.log('funciona');
+    }
 
     return (
 
@@ -23,26 +33,18 @@ const Table = () => {
                     <th rowspan="2"> Estatus General</th>
                 </tr>
                 <tr>
-                    <th> Diagrama de Asignación de Funciones</th>
-                    <th> Validación Key User</th>
+                    <th className="th2"> Diagrama de Asignación de Funciones</th>
+                    <th className="th2"> Validación Key User</th>
                 </tr>
             </thead>
 
             <tbody>
                 {db.map((task, index) =>
-                    <tr key={index}>
-                        <td> {task.macroproceso}</td>
-                        <td> {task.proceso}</td>
-                        <td> <Cell data={task.recInformacion} /></td>
-                        <td> <Cell data={task.modelado} /></td>
-                        <td> <Cell data={task.atrProcesos} /></td>
-                        <td> <Cell data={task.atrTareas} /></td>
-                        <td> <Cell data={task.fad} /></td>
-                        <td> <Cell data={task.validacion.validacionTGS.keyUser} /></td>
-                        <td> <Cell data={task.validacion.validacionTGS.coordProcesos} /></td>
-                        <td> <Cell data={task.validacion.validacionEdison} /></td>
-                        <td> <Cell data={task.statusGeneral} /></td>
-                    </tr>)}
+                    <>
+                        <TaskRow task={task} index={index} click={isClicked} />
+                        <TaskDescription display={display} />
+                    </>
+                )}
             </tbody>
         </StyledTable>
     );

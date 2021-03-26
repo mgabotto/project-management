@@ -3,25 +3,30 @@ import { Select } from 'antd';
 
 export const StyledTable = styled.table`
 
-font-size: 14px;
 margin: 10px;
 border-collapse: separate;
+/* background-color: green */
 
 
 th {
     height: 50px;
-    background-color: #67989A;
-    color: white
+    background-color: #FFFFFF;
+    color: black;
+    border-bottom: 2px grey solid;
+    font-size: 13px;
+}
 
+.th2 {
+    width: 140px
 }
 
 
-tr:nth-child(even){background-color: #DFF2F2}
+tr:nth-child(even){background-color: #F2F2F2}
 
 tr {
     background-color: white;
     text-align: center;
-    background-color: #B5F1F1;
+    background-color: #E6E5E6;
 
     &:hover {
         background-color: yellow;
@@ -29,21 +34,33 @@ tr {
 }
 
 
+
+
 td {
     text-align: center;
     padding: 5px 10px;
-    width: 100px;
+    /* width: 100px; */
 }
-
 
 `
 
+export const DescriptionRow = styled.tr`
+    
+
+    display: ${props => props.hide ? "none" : "table-row"};
+
+    td {
+    background-color: lightcoral;
+
+    &:hover {
+        background-color: black;
+    }
+    }
+`
 
 export const SelecStyle = styled(Select)`
 
-font-size: 14px;
-width: 110px;
-
-
-
+font-size: 13px;
+width: 95px;
 `
+
