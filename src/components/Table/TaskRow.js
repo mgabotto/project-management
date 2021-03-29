@@ -1,11 +1,24 @@
 import React from 'react';
 import Cell from './Cell'
+import { DescriptionRow } from './TableStyle'
 
-const TaskRow = ({ task, index, click }) => {
-    return (
+
+// const [display, setDisplay] = (false)
+
+
+// const TaskRow = ({ task, index }) => {
+
+//     const displayDescription = () => {
+//         display ? setDisplay(false) : setDisplay(true)
+//         console.log('funciona');
+//     }
+
+
+return (
+    <>
         <tr key={index}>
             <td> {task.macroproceso}</td>
-            <td> <button onClick={click()}>{task.proceso}</button> </td>
+            <td onClick={displayDescription}> {task.proceso}</td>
             <td> <Cell data={task.recInformacion} /></td>
             <td> <Cell data={task.modelado} /></td>
             <td> <Cell data={task.atrProcesos} /></td>
@@ -16,7 +29,13 @@ const TaskRow = ({ task, index, click }) => {
             <td> <Cell data={task.validacion.validacionEdison} /></td>
             <td> <Cell data={task.statusGeneral} /></td>
         </tr>
-    );
+        <DescriptionRow hide={display}>
+            <td colSpan="100%">
+                <textarea></textarea>
+            </td>
+        </DescriptionRow>
+    </>
+);
 }
 
 export default TaskRow;

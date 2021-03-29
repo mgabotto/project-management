@@ -5,11 +5,11 @@ export const StyledTable = styled.table`
 
 margin: 10px;
 border-collapse: separate;
-/* background-color: green */
 
 
 th {
     height: 50px;
+    width: 120px;
     background-color: #FFFFFF;
     color: black;
     border-bottom: 2px grey solid;
@@ -17,7 +17,7 @@ th {
 }
 
 .th2 {
-    width: 140px
+    width: 160px
 }
 
 
@@ -38,7 +38,7 @@ tr {
 
 td {
     text-align: center;
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
     /* width: 100px; */
 }
 
@@ -47,7 +47,7 @@ td {
 export const DescriptionRow = styled.tr`
     
 
-    display: ${props => props.hide ? "none" : "table-row"};
+    display: ${props => props.hide ? "table-row" : "none"};
 
     td {
     background-color: lightcoral;
