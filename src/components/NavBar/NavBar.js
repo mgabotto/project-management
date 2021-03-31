@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, NavWrapper, LinkWrapper } from './NavBarElementes'
 
 const NavBar = () => {
-    console.log('dfgdfg');
+
     return (
         <>
             <NavWrapper>

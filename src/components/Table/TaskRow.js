@@ -1,41 +1,61 @@
-import React from 'react';
-import Cell from './Cell'
-import { DescriptionRow } from './TableStyle'
+import React, { useState } from "react";
+import DropDown from "./DropDown";
+import { StageRow, DescriptionRow } from "./TableStyle";
 
+const TaskRow = ({ task, index }) => {
+  const [display, setDisplay] = useState("hide");
 
-// const [display, setDisplay] = (false)
+  const displayDescription = () =>
+    display === "hide" ? setDisplay("show") : setDisplay("hide");
 
-
-// const TaskRow = ({ task, index }) => {
-
-//     const displayDescription = () => {
-//         display ? setDisplay(false) : setDisplay(true)
-//         console.log('funciona');
-//     }
-
-
-return (
+  return (
     <>
-        <tr key={index}>
-            <td> {task.macroproceso}</td>
-            <td onClick={displayDescription}> {task.proceso}</td>
-            <td> <Cell data={task.recInformacion} /></td>
-            <td> <Cell data={task.modelado} /></td>
-            <td> <Cell data={task.atrProcesos} /></td>
-            <td> <Cell data={task.atrTareas} /></td>
-            <td> <Cell data={task.fad} /></td>
-            <td> <Cell data={task.validacion.validacionTGS.keyUser} /></td>
-            <td> <Cell data={task.validacion.validacionTGS.coordProcesos} /></td>
-            <td> <Cell data={task.validacion.validacionEdison} /></td>
-            <td> <Cell data={task.statusGeneral} /></td>
-        </tr>
-        <DescriptionRow hide={display}>
-            <td colSpan="100%">
-                <textarea></textarea>
-            </td>
-        </DescriptionRow>
+      <StageRow>
+        <td> {task.macroproceso}</td>
+        <td className="process" onClick={displayDescription}>
+          {task.proceso}
+        </td>
+        <td>
+          <DropDown data={task.recInformacion} />
+        </td>
+        <td>
+          <DropDown data={task.modelado} />
+        </td>
+        <td>
+          <DropDown data={task.atrProcesos} />
+        </td>
+        <td>
+          <DropDown data={task.atrTareas} />
+        </td>
+        <td>
+          <DropDown data={task.fad} />
+        </td>
+        <td>
+          <DropDown data={task.validacion.validacionTGS.keyUser} />
+        </td>
+        <td>
+          <DropDown data={task.validacion.validacionTGS.coordProcesos} />
+        </td>
+        <td>
+          <DropDown data={task.validacion.validacionEdison} />
+        </td>
+        <td>
+          <DropDown data={task.statusGeneral} />
+        </td>
+      </StageRow>
+      <DescriptionRow display={display}>
+        <td colSpan="100%" className="wrapper">
+          <div className="description">
+            <p>Description</p>
+            <textarea placeholder="Observaciones" rows="3" cols="40" />
+          </div>
+          <div className="responsables">
+            <textarea name="keyUser" cols="12" rows="1" />
+          </div>
+        </td>
+      </DescriptionRow>
     </>
-);
-}
+  );
+};
 
 export default TaskRow;

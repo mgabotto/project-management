@@ -1,14 +1,13 @@
 import React from 'react';
 import { SelecStyle } from './TableStyle';
 
-
 const { Option } = SelecStyle;
 
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
 
-const Cell = ({ data }) => {
+const DropDown = ({ data }) => {
 
     return (
 
@@ -24,4 +23,4 @@ const Cell = ({ data }) => {
 
 
 
-export default Cell;
+export default DropDown;

@@ -1,66 +1,65 @@
-import styled from 'styled-components'
-import { Select } from 'antd';
+import styled from "styled-components";
+import { Select } from "antd";
 
 export const StyledTable = styled.table`
+  margin: 10px;
+  border-collapse: separate;
 
-margin: 10px;
-border-collapse: separate;
-
-
-th {
+  th {
     height: 50px;
     width: 120px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: black;
     border-bottom: 2px grey solid;
     font-size: 13px;
-}
+  }
 
-.th2 {
-    width: 160px
-}
+  .th2 {
+    width: 160px;
+  }
 
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-tr:nth-child(even){background-color: #F2F2F2}
-
-tr {
+  tr {
     background-color: white;
     text-align: center;
-    background-color: #E6E5E6;
+    background-color: #e6e5e6;
 
     &:hover {
-        background-color: yellow;
+      background-color: yellow;
     }
-}
+  }
 
-
-
-
-td {
+  td {
     text-align: center;
     /* padding: 5px 10px; */
     /* width: 100px; */
-}
-
-`
+  }
+`;
 
 export const DescriptionRow = styled.tr`
-    
+  display: ${(props) => (props.display === "show" ? "table-row" : "none")};
+  width: 100%;
 
-    display: ${props => props.hide ? "table-row" : "none"};
-
-    td {
+  td {
     background-color: lightcoral;
+  }
 
-    &:hover {
-        background-color: black;
-    }
-    }
-`
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+`;
 
 export const SelecStyle = styled(Select)`
+  font-size: 13px;
+  width: 95px;
+`;
 
-font-size: 13px;
-width: 95px;
-`
-
+export const StageRow = styled.tr`
+  .process {
+    cursor: pointer;
+  }
+`;
