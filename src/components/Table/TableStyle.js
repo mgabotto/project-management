@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Center } from "../../global/Common";
 import { Select } from "antd";
 
 export const StyledTable = styled.table`
@@ -41,15 +42,41 @@ export const StyledTable = styled.table`
 
 export const DescriptionRow = styled.tr`
   display: ${(props) => (props.display === "show" ? "table-row" : "none")};
-  width: 100%;
+  text-align: start;
 
   td {
     background-color: lightcoral;
   }
 
-  .wrapper {
+  .details {
     display: flex;
-    flex-direction: row;
+    justify-content: start;
+    gap: 30px;
+  }
+
+  .responsables {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .responsable {
+    display: flex;
+    text-align: end;
+
+    p {
+      width: 12rem;
+      margin: 0 10px 0 0;
+      text-align: center;
+      display: flex;
+      /* justify-content: end; */
+      align-items: center;
+    }
+
+    textarea {
+      margin: 10px;
+    }
   }
 `;
 

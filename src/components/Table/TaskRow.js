@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DropDown from "./DropDown";
 import { StageRow, DescriptionRow } from "./TableStyle";
 
-const TaskRow = ({ task, index }) => {
+const TaskRow = ({ task }) => {
   const [display, setDisplay] = useState("hide");
 
   const displayDescription = () =>
@@ -44,13 +44,37 @@ const TaskRow = ({ task, index }) => {
         </td>
       </StageRow>
       <DescriptionRow display={display}>
-        <td colSpan="100%" className="wrapper">
-          <div className="description">
-            <p>Description</p>
-            <textarea placeholder="Observaciones" rows="3" cols="40" />
-          </div>
-          <div className="responsables">
-            <textarea name="keyUser" cols="12" rows="1" />
+        <td colSpan="11">
+          <div className="details">
+            <div className="responsables">
+              <div className="responsable">
+                <p>Responsable de seguimiento</p>
+                <textarea
+                  value={task.respSeguimiento}
+                  name="respSeguimiento"
+                  cols="12"
+                  rows="1"
+                />
+              </div>
+              <div className="responsable">
+                <p>Key User</p>
+                <textarea
+                  value={task.keyUser}
+                  name="keyUser"
+                  cols="12"
+                  rows="1"
+                />
+              </div>
+            </div>
+            <div className="description">
+              <p>Description</p>
+              <textarea
+                value={task.observaciones}
+                placeholder="Observaciones"
+                rows="3"
+                cols="40"
+              />
+            </div>
           </div>
         </td>
       </DescriptionRow>
