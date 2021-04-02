@@ -2,47 +2,31 @@ import React, { useState } from "react";
 import DropDown from "./DropDown";
 import { StageRow, DescriptionRow } from "./TableStyle";
 
-const TaskRow = ({ task }) => {
+const TaskRow = ({ task, update }) => {
   const [display, setDisplay] = useState("hide");
 
   const displayDescription = () =>
     display === "hide" ? setDisplay("show") : setDisplay("hide");
 
+  const updateStage = (id, value) => {
+    update(id, value);
+  };
+
   return (
     <>
       <StageRow>
-        <td> {task.macroproceso}</td>
-        <td className="process" onClick={displayDescription}>
-          {task.proceso}
-        </td>
-        <td>
-          <DropDown data={task.recInformacion} />
-        </td>
-        <td>
-          <DropDown data={task.modelado} />
-        </td>
-        <td>
-          <DropDown data={task.atrProcesos} />
-        </td>
-        <td>
-          <DropDown data={task.atrTareas} />
-        </td>
-        <td>
-          <DropDown data={task.fad} />
-        </td>
-        <td>
-          <DropDown data={task.validacion.validacionTGS.keyUser} />
-        </td>
-        <td>
-          <DropDown data={task.validacion.validacionTGS.coordProcesos} />
-        </td>
-        <td>
-          <DropDown data={task.validacion.validacionEdison} />
-        </td>
-        <td>
-          <DropDown data={task.statusGeneral} />
-        </td>
+        <td>{task.name.macroproceso}</td>
+        <td onClick={displayDescription}>{task.name.proceso}</td>
+
+        {Object.keys(task.stages).map((stage, key) => {
+          return (
+            <td key={key}>
+              <DropDown updateStage={updateStage} data={task.stages[stage]} />
+            </td>
+          );
+        })}
       </StageRow>
+
       <DescriptionRow display={display}>
         <td colSpan="11">
           <div className="details">
@@ -50,7 +34,7 @@ const TaskRow = ({ task }) => {
               <div className="responsable">
                 <p>Responsable de seguimiento</p>
                 <textarea
-                  value={task.respSeguimiento}
+                  // value={task.respSeguimiento}
                   name="respSeguimiento"
                   cols="12"
                   rows="1"
@@ -59,7 +43,7 @@ const TaskRow = ({ task }) => {
               <div className="responsable">
                 <p>Key User</p>
                 <textarea
-                  value={task.keyUser}
+                  // value={task.keyUser}
                   name="keyUser"
                   cols="12"
                   rows="1"
@@ -69,7 +53,7 @@ const TaskRow = ({ task }) => {
             <div className="description">
               <p>Description</p>
               <textarea
-                value={task.observaciones}
+                // value={task.observaciones}
                 placeholder="Observaciones"
                 rows="3"
                 cols="40"

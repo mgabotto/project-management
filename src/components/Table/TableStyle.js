@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Center } from "../../global/Common";
 import { Select } from "antd";
 
 export const StyledTable = styled.table`

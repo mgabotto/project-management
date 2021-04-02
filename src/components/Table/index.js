@@ -7,6 +7,10 @@ import TaskRow from "./TaskRow";
 const Table = () => {
   const [data, setData] = useState(db);
 
+  const update = (id, value) => {
+    setData(...data, ([id] = value));
+  };
+
   return (
     <StyledTable>
       <thead>
@@ -14,7 +18,7 @@ const Table = () => {
       </thead>
       <tbody>
         {data.map((task, index) => (
-          <TaskRow task={task} key={index} />
+          <TaskRow update={update} task={task} key={index} />
         ))}
       </tbody>
     </StyledTable>

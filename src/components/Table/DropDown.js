@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { SelecStyle } from "./TableStyle";
 
-const { Option } = SelecStyle;
+const DropDown = ({ data, prueba }) => {
+  const { Option } = SelecStyle;
 
-const DropDown = ({ data }) => {
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+  const [value, setValue] = useState(data);
+  const [loading, setLoading] = useState(false);
+
+  const updateValue = (value) => {
+    setLoading(true);
+    setValue(value);
+  };
 
   return (
     <SelecStyle
       size={"small"}
       defaultValue={data}
-      onChange={handleChange}
-      loading={false}
+      onChange={updateValue}
+      loading={loading}
+      value={value}
     >
       <Option value="pendiente">Pendiente</Option>
       <Option value="en curso">En curso</Option>
