@@ -4,6 +4,8 @@ import "antd/dist/antd.css";
 import NavBar from "./components/NavBar/NavBar";
 import Table from "./components/Table";
 
+import "./firebase/firebaseConfig";
+
 const App = () => {
   return (
     <Router>
