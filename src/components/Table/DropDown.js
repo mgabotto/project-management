@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import { SelecStyle } from "./TableStyle";
+import { db } from "../../firebase/firebaseConfig";
 
-const DropDown = ({ data, prueba }) => {
-  const { Option } = SelecStyle;
-
-  const [value, setValue] = useState(data);
+const DropDown = ({ stage, update, id }) => {
+  const [status, setStatus] = useState(stage);
   const [loading, setLoading] = useState(false);
 
-  const updateValue = (value) => {
-    setLoading(true);
-    setValue(value);
-  };
+  const { Option } = SelecStyle;
 
   return (
     <SelecStyle
       size={"small"}
-      defaultValue={data}
-      onChange={updateValue}
+      defaultValue={stage}
+      onChange={() => update(id, status)}
       loading={loading}
-      value={value}
+      value={status}
     >
       <Option value="pendiente">Pendiente</Option>
       <Option value="en curso">En curso</Option>

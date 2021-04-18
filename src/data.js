@@ -1,7 +1,8 @@
-export const db = [
+export const db2 = [
   {
+    id: 1,
     name: {
-      macroproceso: "Macroproceso",
+      macroproceso: "Macroproceso2",
       proceso: "Proceso",
     },
     stages: {
@@ -22,8 +23,9 @@ export const db = [
     },
   },
   {
+    id: 2,
     name: {
-      macroproceso: "Macroproceso",
+      macroproceso: "Macroproceso2",
       proceso: "Proceso",
     },
     stages: {
@@ -44,8 +46,9 @@ export const db = [
     },
   },
   {
+    id: 3,
     name: {
-      macroproceso: "Macroproceso",
+      macroproceso: "Macroproceso2",
       proceso: "Proceso",
     },
     stages: {
@@ -66,8 +69,9 @@ export const db = [
     },
   },
   {
+    id: 4,
     name: {
-      macroproceso: "Macroproceso",
+      macroproceso: "Macroproceso2",
       proceso: "Proceso",
     },
     stages: {
@@ -88,8 +92,9 @@ export const db = [
     },
   },
   {
+    id: 5,
     name: {
-      macroproceso: "Macroproceso",
+      macroproceso: "Macroproceso2",
       proceso: "Proceso",
     },
     stages: {
@@ -110,8 +115,9 @@ export const db = [
     },
   },
   {
+    id: 6,
     name: {
-      macroproceso: "Macroproceso",
+      macroproceso: "Macroproceso2",
       proceso: "Proceso",
     },
     stages: {

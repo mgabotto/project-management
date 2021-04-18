@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DropDown from "./DropDown";
+import Stages from "./Stages";
 import { StageRow, DescriptionRow } from "./TableStyle";
 
 const TaskRow = ({ task, update }) => {
@@ -8,23 +8,24 @@ const TaskRow = ({ task, update }) => {
   const displayDescription = () =>
     display === "hide" ? setDisplay("show") : setDisplay("hide");
 
-  const updateStage = (id, value) => {
-    update(id, value);
-  };
-
   return (
     <>
       <StageRow>
         <td>{task.name.macroproceso}</td>
         <td onClick={displayDescription}>{task.name.proceso}</td>
 
-        {Object.keys(task.stages).map((stage, key) => {
+        {/* {Object.keys(task.stages).map((stage, key) => {
           return (
             <td key={key}>
-              <DropDown updateStage={updateStage} data={task.stages[stage]} />
+              <DropDown
+                update={prueba}
+                task={task.stages[stage]}
+                stage={stage}
+              />
             </td>
           );
-        })}
+        })} */}
+        <Stages task={task} />
       </StageRow>
 
       <DescriptionRow display={display}>
@@ -51,7 +52,6 @@ const TaskRow = ({ task, update }) => {
               </div>
             </div>
             <div className="description">
-              <p>Description</p>
               <textarea
                 // value={task.observaciones}
                 placeholder="Observaciones"
