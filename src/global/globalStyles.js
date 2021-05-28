@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -9,13 +9,13 @@ html {
 * {
     padding: 0;
     margin: 0;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
     background: #FFFFFF;
 }
 
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

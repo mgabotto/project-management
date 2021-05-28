@@ -3,10 +3,12 @@ import { db } from "./firebaseConfig";
 // FUNCIONES FIREBASE
 
 export const NewTask = () => {
+  let newID = Date.now();
+
   db.collection("procesos")
     .doc()
     .set({
-      id: 3,
+      id: newID,
       name: {
         macroproceso: "Macroproceso2",
         proceso: "Proceso",
@@ -31,11 +33,17 @@ export const NewTask = () => {
 };
 
 export const GetTasks = () => {
+  let tasks = [];
   db.collection("procesos")
     .get()
     .then((querySnapshot) => {
-      let tasks = [];
       querySnapshot.forEach((doc) => tasks.push(doc.data()));
-      this.setData(tasks);
     });
+  return tasks;
+};
+
+export const DeleteTask = (id) => {
+  if (window.confirm("Está seguro que quiere eliminar el proceso?")) {
+    db.collection("procesos").doc(id).delete();
+  }
 };

@@ -4,18 +4,15 @@ import { Select } from "antd";
 export const StyledTable = styled.table`
   margin: 10px;
   border-collapse: separate;
+  font-family: Arial, Helvetica, sans-serif;
 
   th {
     height: 50px;
-    width: 120px;
+    width: 110px;
     background-color: #ffffff;
     color: black;
     border-bottom: 2px grey solid;
     font-size: 13px;
-  }
-
-  .th2 {
-    width: 160px;
   }
 
   tr:nth-child(even) {
@@ -80,8 +77,8 @@ export const DescriptionRow = styled.tr`
 `;
 
 export const SelecStyle = styled(Select)`
-  font-size: 13px;
-  width: 95px;
+  font-size: 12px;
+  width: 100px;
 `;
 
 export const StageRow = styled.tr`

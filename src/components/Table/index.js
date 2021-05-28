@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
-import TaskRow from "./TaskRow";
-import { StyledTable } from "./TableStyle";
+import Console from "./Console";
+import Data from "./TableData";
 import { db } from "../../firebase/firebaseConfig";
-// import { db2 } from "../../data";
-import { NewTask, GetTasks } from "../../firebase/DBmanage";
+import { DeleteTask } from "../../firebase/DBmanage";
 
 const Table = () => {
   const [data, setData] = useState([]);
+  const [change, setChange] = useState(false);
 
   useEffect(() => {
-    GetTasks();
-    console.log("effect");
-  }, []);
+    let tasks = [];
+    db.collection("procesos")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) =>
+          tasks.push({ ...doc.data(), id: doc.id })
+        );
+        setData(tasks);
+        console.log(tasks);
+      });
+  }, [change]);
 
-  const addTask = () => {
-    NewTask();
-    console.log("anda");
+  const handleSearch = (query) => {
+    const filterTasks = data.filter((task) => {
+      return task.name.proceso.toLowerCase().includes(query.toLowerCase());
+    });
+    setData(filterTasks);
+  };
+
+  const update = () => setChange(!change);
+
+  const deleteTask = (id) => {
+    DeleteTask(id);
+    setChange(!change);
   };
 
   return (
-    <StyledTable>
-      <button onClick={addTask}> ADD </button>
-      <thead>
-        <Header />
-      </thead>
-      <tbody>
-        {data.map((task, index) => (
-          <TaskRow task={task} key={index} />
-        ))}
-      </tbody>
-    </StyledTable>
+    <>
+      <Console update={update} handleSearch={handleSearch} />
+      {!data && <i class="fas fa-spinner"></i>}
+      {data && <Data data={data} deleteTask={deleteTask} />}
+    </>
   );
 };
 

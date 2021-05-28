@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { SelecStyle } from "./TableStyle";
-import { db } from "../../firebase/firebaseConfig";
+import { SelecStyle } from "../TableStyle";
 
 const DropDown = ({ stage, update, id }) => {
   const [status, setStatus] = useState(stage);
