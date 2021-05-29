@@ -1,17 +1,30 @@
 import React, { useState } from "react";
 import { SelecStyle } from "../TableStyle";
+import { UpdateTask } from "../../../firebase/DBmanage";
 
-const DropDown = ({ stage, update, id }) => {
+const DropDown = ({ stage, track, id }) => {
   const [status, setStatus] = useState(stage);
   const [loading, setLoading] = useState(false);
 
   const { Option } = SelecStyle;
 
+  const update = async (value) => {
+    console.log(track);
+    setLoading(true);
+    UpdateTask(id, track, value)
+      .then(() => {
+        setStatus(value);
+      })
+      .catch((e) => {
+        alert("No fue posible realizar la actualización del estado");
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
     <SelecStyle
-      size={"small"}
-      defaultValue={stage}
-      onChange={() => update(id, status)}
+      size={"medium"}
+      onChange={update}
       loading={loading}
       value={status}
     >

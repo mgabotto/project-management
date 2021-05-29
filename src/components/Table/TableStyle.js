@@ -8,11 +8,11 @@ export const StyledTable = styled.table`
 
   th {
     height: 50px;
-    width: 110px;
+    width: 140px;
     background-color: #ffffff;
     color: black;
     border-bottom: 2px grey solid;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   tr:nth-child(even) {
@@ -77,12 +77,20 @@ export const DescriptionRow = styled.tr`
 `;
 
 export const SelecStyle = styled(Select)`
-  font-size: 12px;
-  width: 100px;
+  font-size: 10px;
+  width: 130px;
 `;
 
 export const StageRow = styled.tr`
   .process {
     cursor: pointer;
   }
+  height: 40px;
+`;
+
+export const TableContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;

@@ -47,3 +47,18 @@ export const DeleteTask = (id) => {
     db.collection("procesos").doc(id).delete();
   }
 };
+
+export const UpdateTask = (id, track, value) => {
+  const process = db.collection("procesos").doc(id);
+  let obj = {};
+  obj[track] = value;
+  return process
+    .update(obj)
+    .then(() => {
+      console.log("Documento actualizado con éxito");
+    })
+    .catch((error) => {
+      // The document probably doesn't exist.
+      console.log("Error actualizando documento: ", error);
+    });
+};

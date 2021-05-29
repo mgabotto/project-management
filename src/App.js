@@ -4,8 +4,7 @@ import "antd/dist/antd.css";
 //
 import NavBar from "./components/NavBar/NavBar";
 import Table from "./components/Table";
-import MaterialUI from "./components/MaterialUI";
-
+import Graphs from "./components/Graphs";
 //
 import "./firebase/firebaseConfig";
 
@@ -18,7 +17,7 @@ const App = () => {
           <Table />
         </Route>
         <Route path="/prueba">
-          <MaterialUI />
+          <Graphs />
         </Route>
       </Switch>
     </Router>
