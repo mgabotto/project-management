@@ -7,8 +7,13 @@ export const ConsoleWrapper = styled.div`
   justify-content: start;
   padding: 5px;
   width: 100%;
+  ${(props) => props.theme.fontSizes.medium}
 `;
 
-export const SearchBox = styled.textarea``;
+export const SearchBox = styled.textarea`
+  ${(props) => props.theme.fontSizes.medium}
+`;
 
-export const Search = styled.div``;
+export const Search = styled.div`
+  ${(props) => props.theme.fontSizes.medium}
+`;

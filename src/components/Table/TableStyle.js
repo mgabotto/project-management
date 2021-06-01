@@ -1,38 +1,53 @@
 import styled from "styled-components";
 import { Select } from "antd";
 
+export const TableContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const StyledTable = styled.table`
   margin: 10px;
   border-collapse: separate;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: ${(props) => props.theme.colors.powderWhite};
+  padding: 10px;
+  border-radius: 10px;
+  border: ${(props) => props.theme.colors.powderWhite} 2px solid;
+  font-size: ${(props) => props.theme.fontSizes.medium};
 
   th {
     height: 50px;
     width: 140px;
-    background-color: #ffffff;
+    background-color: ${(props) => props.theme.colors.powderWhite};
     color: black;
     border-bottom: 2px grey solid;
-    font-size: 16px;
+    border-radius: 30px;
+    border: ${(props) => props.theme.colors.powderWhite} 2px solid;
   }
 
   tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: ${(props) => props.theme.colors.powderWhite};
   }
 
   tr {
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.powderWhite};
     text-align: center;
-    background-color: #e6e5e6;
-
     &:hover {
-      background-color: yellow;
+      background-color: ${(props) => props.theme.colors.persianGreen};
+      td {
+        border-radius: 0px;
+        border: 0px;
+      }
     }
   }
 
   td {
     text-align: center;
-    /* padding: 5px 10px; */
-    /* width: 100px; */
+    border-radius: 10px;
+    border: white 1px solid;
   }
 `;
 
@@ -41,7 +56,7 @@ export const DescriptionRow = styled.tr`
   text-align: start;
 
   td {
-    background-color: lightcoral;
+    background-color: ${(props) => props.theme.colors.persianGreen};
   }
 
   .details {
@@ -66,7 +81,6 @@ export const DescriptionRow = styled.tr`
       margin: 0 10px 0 0;
       text-align: center;
       display: flex;
-      /* justify-content: end; */
       align-items: center;
     }
 
@@ -76,21 +90,26 @@ export const DescriptionRow = styled.tr`
   }
 `;
 
-export const SelecStyle = styled(Select)`
-  font-size: 10px;
-  width: 130px;
-`;
+// FILA PROCESO
 
 export const StageRow = styled.tr`
   .process {
     cursor: pointer;
   }
   height: 40px;
+  .text {
+    width: 200px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
 
-export const TableContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+export const SelectStyle = styled(Select)`
+  font-size: ${(props) => props.theme.fontSizes.medium};
+  width: 140px;
+
+  .ant-select-arrow {
+    top: 43%;
+  }
 `;

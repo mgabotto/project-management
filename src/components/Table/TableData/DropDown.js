@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { SelecStyle } from "../TableStyle";
+import { SelectStyle } from "../TableStyle";
 import { UpdateTask } from "../../../firebase/DBmanage";
 
 const DropDown = ({ stage, track, id }) => {
   const [status, setStatus] = useState(stage);
   const [loading, setLoading] = useState(false);
 
-  const { Option } = SelecStyle;
+  const { Option } = SelectStyle;
 
   const update = async (value) => {
     console.log(track);
@@ -22,8 +22,9 @@ const DropDown = ({ stage, track, id }) => {
   };
 
   return (
-    <SelecStyle
+    <SelectStyle
       size={"medium"}
+      bordered={false}
       onChange={update}
       loading={loading}
       value={status}
@@ -31,7 +32,7 @@ const DropDown = ({ stage, track, id }) => {
       <Option value="pendiente">Pendiente</Option>
       <Option value="en curso">En curso</Option>
       <Option value="finalizado">Finalizado</Option>
-    </SelecStyle>
+    </SelectStyle>
   );
 };
 

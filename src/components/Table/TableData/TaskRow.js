@@ -11,8 +11,10 @@ const TaskRow = ({ task, update, deleteRow }) => {
   return (
     <>
       <StageRow>
-        <td>{task.name.macroproceso}</td>
-        <td onClick={displayDescription}>{task.name.proceso}</td>
+        <td className="text">{task.name.macroproceso}</td>
+        <td className="text" onClick={displayDescription}>
+          {task.name.proceso}
+        </td>
         <Stages task={task} />
         <td>
           <i
