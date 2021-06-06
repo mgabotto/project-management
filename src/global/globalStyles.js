@@ -11,10 +11,11 @@ html {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    color: ${(props) => props.theme.colors.dark}
 }
 
 body {
-    background: ${(props) => props.theme.colors.persianGreen};
+    background: ${(props) => props.theme.colors.secondary};
 }
 
 

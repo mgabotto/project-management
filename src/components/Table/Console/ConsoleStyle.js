@@ -1,19 +1,26 @@
 import styled from "styled-components";
+import { Input, Button } from "antd";
 
 export const ConsoleWrapper = styled.div`
-  background-color: grey;
+  background-color: ${(props) => props.theme.colors.tertiary};
   display: flex;
   gap: 30px;
   justify-content: start;
-  padding: 5px;
+  align-items: center;
+  padding: 10px 0 10px 40px;
   width: 100%;
-  ${(props) => props.theme.fontSizes.medium}
-`;
-
-export const SearchBox = styled.textarea`
   ${(props) => props.theme.fontSizes.medium}
 `;
 
 export const Search = styled.div`
   ${(props) => props.theme.fontSizes.medium}
+`;
+
+export const StyledInput = styled(Input)`
+  font-size: ${(props) => props.theme.fontSizes.medium};
+`;
+
+export const StyledButton = styled(Button)`
+  background-color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.secondary};
 `;

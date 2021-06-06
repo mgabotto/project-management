@@ -5,8 +5,7 @@ export const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #43e0f3;
-  /* padding: 10px 0 10px 0; */
+  background-color: ${(props) => props.theme.colors.dark};
 `;
 
 export const LinkWrapper = styled.div`
@@ -16,7 +15,7 @@ export const LinkWrapper = styled.div`
 export const NavLink = styled(Link)`
   font-size: 20px;
   color: white;
-  background-color: black;
+  /* background-color: ${(props) => props.theme.colors.primary}; */
   font-weight: 300;
   margin: 10px;
 `;

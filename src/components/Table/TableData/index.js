@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledTable } from "../TableStyle";
-import TaskRow from "./TaskRow";
+import TaskRow from "./ProcessStages";
 import Header from "./Header";
 
 const Data = ({ data, deleteTask }) => {

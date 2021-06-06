@@ -1,7 +1,12 @@
 import React from "react";
 import { NewTask } from "../../../firebase/DBmanage";
-import { ConsoleWrapper, Search } from "./ConsoleStyle";
-import { Button, TextField } from "@material-ui/core";
+import {
+  ConsoleWrapper,
+  Search,
+  StyledInput,
+  StyledButton,
+} from "./ConsoleStyle";
+import { FileAddOutlined } from "@ant-design/icons";
 
 const Console = ({ update, handleSearch }) => {
   const addTask = async () => {
@@ -12,11 +17,17 @@ const Console = ({ update, handleSearch }) => {
 
   return (
     <ConsoleWrapper>
-      <Button variant="contained" onClick={addTask} size="small">
-        Nuevo Proceso{" "}
-      </Button>
+      <StyledButton
+        type="primary"
+        shape="round"
+        icon={<FileAddOutlined />}
+        size="large"
+        onClick={addTask}
+      >
+        Nuevo Proceso
+      </StyledButton>
       <Search>
-        <TextField
+        <StyledInput
           placeholder="Buscar proceso"
           onChange={(event) => handleSearch(event.target.value)}
         />

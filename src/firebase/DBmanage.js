@@ -58,7 +58,18 @@ export const UpdateTask = (id, track, value) => {
       console.log("Documento actualizado con éxito");
     })
     .catch((error) => {
-      // The document probably doesn't exist.
+      console.log("Error actualizando documento: ", error);
+    });
+};
+
+export const UpdateDescription = (id, obj) => {
+  const process = db.collection("procesos").doc(id);
+  return process
+    .update(obj)
+    .then(() => {
+      console.log("Documento actualizado con éxito");
+    })
+    .catch((error) => {
       console.log("Error actualizando documento: ", error);
     });
 };

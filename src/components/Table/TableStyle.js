@@ -12,51 +12,39 @@ export const StyledTable = styled.table`
   margin: 10px;
   border-collapse: separate;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: ${(props) => props.theme.colors.powderWhite};
+  background-color: ${(props) => props.theme.colors.primary};
   padding: 10px;
   border-radius: 10px;
-  border: ${(props) => props.theme.colors.powderWhite} 2px solid;
   font-size: ${(props) => props.theme.fontSizes.medium};
 
   th {
     height: 50px;
     width: 140px;
-    background-color: ${(props) => props.theme.colors.powderWhite};
-    color: black;
-    border-bottom: 2px grey solid;
+    background-color: ${(props) => props.theme.colors.primary};
     border-radius: 30px;
-    border: ${(props) => props.theme.colors.powderWhite} 2px solid;
-  }
-
-  tr:nth-child(even) {
-    background-color: ${(props) => props.theme.colors.powderWhite};
   }
 
   tr {
-    background-color: ${(props) => props.theme.colors.powderWhite};
+    background-color: ${(props) => props.theme.colors.primary};
     text-align: center;
     &:hover {
-      background-color: ${(props) => props.theme.colors.persianGreen};
-      td {
-        border-radius: 0px;
-        border: 0px;
-      }
+      background-color: ${(props) => props.theme.colors.secondary};
     }
   }
 
   td {
     text-align: center;
     border-radius: 10px;
-    border: white 1px solid;
   }
 `;
 
 export const DescriptionRow = styled.tr`
   display: ${(props) => (props.display === "show" ? "table-row" : "none")};
-  text-align: start;
 
   td {
-    background-color: ${(props) => props.theme.colors.persianGreen};
+    background-color: ${(props) => props.theme.colors.secondary};
+    padding: 10px 0;
+    height: fit-content;
   }
 
   .details {
@@ -65,38 +53,49 @@ export const DescriptionRow = styled.tr`
     gap: 30px;
   }
 
-  .responsables {
+  .respContainer {
+    padding-left: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 10px;
+    align-items: flex-end;
   }
 
+  textarea {
+    margin: 10px;
+    border-radius: 10px;
+  }
   .responsable {
     display: flex;
-    text-align: end;
-
-    p {
-      width: 12rem;
-      margin: 0 10px 0 0;
-      text-align: center;
-      display: flex;
-      align-items: center;
-    }
 
     textarea {
-      margin: 10px;
+      height: 30px;
     }
+
+    .label {
+      margin: 0 10px 0 0;
+      margin: auto;
+    }
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
   }
 `;
 
-// FILA PROCESO
+//STAGES PROCESO
 
 export const StageRow = styled.tr`
   .process {
     cursor: pointer;
   }
   height: 40px;
+
+  .deleteBtn {
+    cursor: "pointer";
+    margin: 5px;
+  }
+
   .text {
     width: 200px;
     &:hover {
@@ -106,10 +105,17 @@ export const StageRow = styled.tr`
 `;
 
 export const SelectStyle = styled(Select)`
-  font-size: ${(props) => props.theme.fontSizes.medium};
+  font-size: ${(props) => props.theme.fontSizes.small};
   width: 140px;
+  color: ${(props) => props.theme.colors.secondary};
 
   .ant-select-arrow {
     top: 43%;
   }
+`;
+
+export const Loading = styled.div`
+  display: inline-block;
+  width: 80px;
+  height: 80px;
 `;

@@ -3,8 +3,8 @@ import Console from "./Console";
 import Data from "./TableData";
 import { db } from "../../firebase/firebaseConfig";
 import { DeleteTask } from "../../firebase/DBmanage";
-import loadingGIF from "../../media/fading-circles.gif";
 import { TableContainer } from "./TableStyle";
+import Loader from "../assets/Loader";
 
 const Table = () => {
   const [data, setData] = useState("");
@@ -22,6 +22,7 @@ const Table = () => {
         );
         setSearchfield(tasks);
         setData(tasks);
+        console.log(tasks);
       });
   }, [change]);
 
@@ -44,7 +45,8 @@ const Table = () => {
   return (
     <TableContainer>
       <Console update={update} handleSearch={handleSearch} />
-      {!data && <img src={loadingGIF} alt="loading" />}
+      {/* {!data && <img src={loadingGIF} alt="loading" />} */}
+      {!data && <Loader className="lds-dual-ring">Cargando</Loader>}
       {data && <Data data={searchfield} deleteTask={deleteTask} />}
     </TableContainer>
   );
