@@ -4,7 +4,6 @@ import { Button } from "antd";
 import { UpdateDescription } from "../../../../firebase/DBmanage";
 
 const ProcessDescription = ({ display, task }) => {
-  const res
   const detalle = task.detalle;
 
   const [respSeguimiento, setRespSeguimiento] = useState(
@@ -13,8 +12,15 @@ const ProcessDescription = ({ display, task }) => {
   const [keyUser, setKeyUser] = useState(detalle.keyUser);
   const [observaciones, setObservaciones] = useState(detalle.observaciones);
 
-  const updateDescription = (value) => {
-    UpdateDescription(task.id);
+  const updateDescription = () => {
+    const descriptionObject = {
+      detalle: {
+        respSeguimiento,
+        keyUser,
+        observaciones,
+      },
+    };
+    UpdateDescription(task.id, descriptionObject);
   };
 
   return (
@@ -28,7 +34,7 @@ const ProcessDescription = ({ display, task }) => {
                 cols="12"
                 rows="1"
                 value={respSeguimiento}
-                onChange={(value) => setRespSeguimiento(value)}
+                onChange={(e) => setRespSeguimiento(e.target.value)}
               />
             </div>
             <div className="responsable">
@@ -37,7 +43,7 @@ const ProcessDescription = ({ display, task }) => {
                 cols="12"
                 rows="1"
                 value={keyUser}
-                onChange={(value) => setKeyUser(value)}
+                onChange={(e) => setKeyUser(e.target.value)}
               />
             </div>
           </div>
@@ -47,7 +53,7 @@ const ProcessDescription = ({ display, task }) => {
               rows="3"
               cols="40"
               value={observaciones}
-              onChange={(value) => setObservaciones(value)}
+              onChange={(e) => setObservaciones(e.target.value)}
             />
           </div>
           <Button type="primary" onClick={() => updateDescription()}>
