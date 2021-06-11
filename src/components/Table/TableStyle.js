@@ -3,13 +3,17 @@ import { Select } from "antd";
 
 export const TableContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    overflow: scroll;
+    height: 80vh;
+  }
 `;
 
 export const StyledTable = styled.table`
-  margin: 10px;
+  width: fit-content;
+  margin: 10px auto;
   border-collapse: separate;
   font-family: Arial, Helvetica, sans-serif;
   background-color: ${(props) => props.theme.colors.primary};
@@ -50,11 +54,11 @@ export const DescriptionRow = styled.tr`
   .details {
     display: flex;
     justify-content: start;
-    gap: 30px;
+    width: 120%;
   }
 
   .respContainer {
-    padding-left: 30px;
+    /* padding-left: 30px; */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -63,17 +67,21 @@ export const DescriptionRow = styled.tr`
   textarea {
     margin: 10px;
     border-radius: 10px;
+    text-align: center;
   }
   .responsable {
     display: flex;
 
     textarea {
       height: 30px;
+      width: 250px;
     }
 
     .label {
       margin: 0 10px 0 0;
-      margin: auto;
+      align-self: center;
+      text-align: end;
+      width: 300px;
     }
   }
 
@@ -98,6 +106,7 @@ export const StageRow = styled.tr`
 
   .text {
     width: 200px;
+    max-width: 200px;
     &:hover {
       cursor: pointer;
     }

@@ -8,7 +8,8 @@ export const ConsoleWrapper = styled.div`
   justify-content: start;
   align-items: center;
   padding: 10px 0 10px 40px;
-  width: 100%;
+  padding: 10px auto;
+
   ${(props) => props.theme.fontSizes.medium}
 `;
 

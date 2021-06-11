@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NewTask } from "../../../firebase/DBmanage";
 import {
   ConsoleWrapper,
@@ -9,10 +9,15 @@ import {
 import { FileAddOutlined } from "@ant-design/icons";
 
 const Console = ({ update, handleSearch }) => {
+  const [loading, setLoading] = useState(false);
+
   const addTask = async () => {
+    await setLoading(true);
+    console.log(loading);
     await NewTask();
-    console.log("Tarea agregada");
     update();
+    setLoading(false);
+    console.log(loading);
   };
 
   return (
@@ -23,6 +28,7 @@ const Console = ({ update, handleSearch }) => {
         icon={<FileAddOutlined />}
         size="large"
         onClick={addTask}
+        loading={loading}
       >
         Nuevo Proceso
       </StyledButton>

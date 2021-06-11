@@ -4,14 +4,17 @@ const GlobalStyle = createGlobalStyle`
 
 html {
     height: 100%;
-    font-size: 10px
+    font-size: 10px;
 }
 
 * {
     padding: 0;
+    box-sizing: border-box;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    color: ${(props) => props.theme.colors.dark}
+    color: ${(props) => props.theme.colors.dark};
+    width: auto;
+
 }
 
 body {

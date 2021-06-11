@@ -12,7 +12,9 @@ const ProcessDescription = ({ display, task }) => {
   const [keyUser, setKeyUser] = useState(detalle.keyUser);
   const [observaciones, setObservaciones] = useState(detalle.observaciones);
 
-  const updateDescription = () => {
+  const [loading, setLoading] = useState(false);
+
+  const updateDescription = async () => {
     const descriptionObject = {
       detalle: {
         respSeguimiento,
@@ -20,12 +22,16 @@ const ProcessDescription = ({ display, task }) => {
         observaciones,
       },
     };
-    UpdateDescription(task.id, descriptionObject);
+
+    setLoading(true);
+    await UpdateDescription(task.id, descriptionObject);
+
+    setLoading(false);
   };
 
   return (
     <DescriptionRow display={display}>
-      <td colSpan="7">
+      <td colSpan="8">
         <div className="details">
           <div className="respContainer">
             <div className="responsable">
@@ -56,7 +62,11 @@ const ProcessDescription = ({ display, task }) => {
               onChange={(e) => setObservaciones(e.target.value)}
             />
           </div>
-          <Button type="primary" onClick={() => updateDescription()}>
+          <Button
+            loading={loading}
+            type="primary"
+            onClick={() => updateDescription()}
+          >
             Primary Button
           </Button>
         </div>
