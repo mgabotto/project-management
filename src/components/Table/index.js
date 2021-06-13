@@ -22,7 +22,6 @@ const Table = () => {
         );
         setSearchfield(tasks);
         setData(tasks);
-        console.log(tasks);
       });
   }, [change]);
 

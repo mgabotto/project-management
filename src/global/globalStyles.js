@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
 html {
     height: 100%;
     font-size: 10px;
+    width: auto;
 }
 
 * {
@@ -13,7 +14,6 @@ html {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     color: ${(props) => props.theme.colors.dark};
-    width: auto;
 
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SelectStyle } from "../../TableStyle";
+import { SelectStyle } from "./ProcessStagesStyle";
 import { UpdateTask } from "../../../../firebase/DBmanage";
 
 const DropDown = ({ stage, track, id }) => {

@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "antd/dist/antd.css";
 //
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/Navbar/Navbar";
 import Table from "./components/Table";
-import Graphs from "./components/Graphs";
+import GraphPage from "./components/GraphPage";
 //
 import "./firebase/firebaseConfig";
 
@@ -16,8 +16,8 @@ const App = () => {
         <Route exact path="/">
           <Table />
         </Route>
-        <Route path="/prueba">
-          <Graphs />
+        <Route path="/graphs">
+          <GraphPage />
         </Route>
       </Switch>
     </Router>

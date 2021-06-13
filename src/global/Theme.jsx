@@ -4,13 +4,14 @@ import { ThemeProvider } from "styled-components";
 const theme = {
   colors: {
     primary: "#eeeeee",
-    secondary: "#00adb5",
-    tertiary: "#393e46",
-    dark: "#222831",
+    secondary: "#8881d1",
+    lightblue: "#bbbdd4",
+    tertiary: "#1a237e",
+    dark: "#000051",
   },
   fonts: ["sans-serif", "Roboto"],
   fontSizes: {
-    small: "1.5rem",
+    small: "1.6rem",
     medium: "1.8rem",
     large: "3rem",
   },

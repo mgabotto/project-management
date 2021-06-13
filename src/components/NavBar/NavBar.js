@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, NavWrapper, LinkWrapper } from "./NavBarElementes";
+import { NavLink, NavWrapper, LinkWrapper } from "./NavbarStyle";
 
 const NavBar = () => {
   return (
@@ -7,9 +7,8 @@ const NavBar = () => {
       <NavWrapper>
         {/* AGREGAR ICONO */}
         <LinkWrapper>
-          <NavLink to="/"> Link</NavLink>
-          <NavLink to="/"> Link</NavLink>
-          <NavLink to="/"> Link</NavLink>
+          <NavLink to="/"> Home</NavLink>
+          <NavLink to="/graphs"> Gráficos</NavLink>
         </LinkWrapper>
       </NavWrapper>
     </>

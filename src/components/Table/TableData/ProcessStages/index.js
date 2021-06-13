@@ -1,21 +1,29 @@
 import React, { useState } from "react";
 import Stages from "./Stages";
-import { StageRow } from "../../TableStyle";
+import { StageRow } from "./ProcessStagesStyle";
 import { DeleteOutlined } from "@ant-design/icons";
 import ProcessDescription from "./ProcessDescription";
 
-const TaskRow = ({ task, deleteRow }) => {
+const ProcessStages = ({ task, deleteRow }) => {
+  const name = task.name;
+
   const [display, setDisplay] = useState("hide");
+  const [macroproceso, setMacroproceso] = useState(name.macroproceso);
+  const [proceso, setProceso] = useState(name.proceso);
 
   const displayDescription = () =>
     display === "hide" ? setDisplay("show") : setDisplay("hide");
 
+  const updateNames = (macroproceso, proceso) => {
+    setMacroproceso(macroproceso);
+    setProceso(proceso);
+  };
   return (
     <>
       <StageRow>
-        <td className="text">{task.name.macroproceso}</td>
+        <td className="text">{macroproceso}</td>
         <td className="text" onClick={displayDescription}>
-          {task.name.proceso}
+          {proceso}
         </td>
         <Stages task={task} />
         <td>
@@ -26,9 +34,13 @@ const TaskRow = ({ task, deleteRow }) => {
           />
         </td>
       </StageRow>
-      <ProcessDescription display={display} task={task} />
+      <ProcessDescription
+        updateNames={updateNames}
+        display={display}
+        task={task}
+      />
     </>
   );
 };
 
-export default TaskRow;
+export default ProcessStages;

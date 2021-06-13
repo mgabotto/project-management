@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { DescriptionRow } from "../../TableStyle";
+import { DescriptionRow, LabelInput, LabelWrapper } from "./ProcessStagesStyle";
 import { Button } from "antd";
 import { UpdateDescription } from "../../../../firebase/DBmanage";
 
-const ProcessDescription = ({ display, task }) => {
+const ProcessDescription = ({ display, task, updateNames }) => {
   const detalle = task.detalle;
+  const name = task.name;
+
+  const [macroproceso, setMacroproceso] = useState(name.macroproceso);
+  const [proceso, setProceso] = useState(name.proceso);
 
   const [respSeguimiento, setRespSeguimiento] = useState(
     detalle.respSeguimiento
@@ -21,29 +25,53 @@ const ProcessDescription = ({ display, task }) => {
         keyUser,
         observaciones,
       },
+      name: {
+        macroproceso,
+        proceso,
+      },
     };
 
     setLoading(true);
     await UpdateDescription(task.id, descriptionObject);
 
+    updateNames(macroproceso, proceso);
     setLoading(false);
   };
 
   return (
     <DescriptionRow display={display}>
-      <td colSpan="8">
+      <td colSpan="9">
         <div className="details">
-          <div className="respContainer">
-            <div className="responsable">
-              <p className="label">Responsable de seguimiento</p>
+          <LabelWrapper>
+            <LabelInput>
+              <p className="label">Macroproceso</p>
+              <textarea
+                cols="12"
+                rows="1"
+                value={macroproceso}
+                onChange={(e) => setMacroproceso(e.target.value)}
+              />
+            </LabelInput>
+            <LabelInput>
+              <p className="label">Proceso</p>
+              <textarea
+                cols="12"
+                rows="1"
+                value={proceso}
+                onChange={(e) => setProceso(e.target.value)}
+              />
+            </LabelInput>
+
+            <LabelInput>
+              <p className="label">Seguimiento</p>
               <textarea
                 cols="12"
                 rows="1"
                 value={respSeguimiento}
                 onChange={(e) => setRespSeguimiento(e.target.value)}
               />
-            </div>
-            <div className="responsable">
+            </LabelInput>
+            <LabelInput>
               <p className="label">Key User</p>
               <textarea
                 cols="12"
@@ -51,23 +79,23 @@ const ProcessDescription = ({ display, task }) => {
                 value={keyUser}
                 onChange={(e) => setKeyUser(e.target.value)}
               />
-            </div>
-          </div>
-          <div className="description">
-            <textarea
-              placeholder="Observaciones"
-              rows="3"
-              cols="40"
-              value={observaciones}
-              onChange={(e) => setObservaciones(e.target.value)}
-            />
-          </div>
+            </LabelInput>
+          </LabelWrapper>
+
+          <textarea
+            placeholder="Observaciones"
+            rows="3"
+            cols="40"
+            value={observaciones}
+            onChange={(e) => setObservaciones(e.target.value)}
+          />
+
           <Button
             loading={loading}
-            type="primary"
+            type="secondary"
             onClick={() => updateDescription()}
           >
-            Primary Button
+            Actualizar
           </Button>
         </div>
       </td>

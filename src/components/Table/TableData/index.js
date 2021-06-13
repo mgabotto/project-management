@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledTable } from "../TableStyle";
-import TaskRow from "./ProcessStages";
+import ProcessStages from "./ProcessStages";
 import Header from "./Header";
 
 const Data = ({ data, deleteTask }) => {
@@ -13,7 +13,7 @@ const Data = ({ data, deleteTask }) => {
       </thead>
       <tbody>
         {data.map((task, index) => (
-          <TaskRow deleteRow={deleteRow} task={task} key={index} />
+          <ProcessStages deleteRow={deleteRow} task={task} key={index} />
         ))}
       </tbody>
     </StyledTable>

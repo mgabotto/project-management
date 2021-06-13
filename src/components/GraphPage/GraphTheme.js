@@ -3,7 +3,7 @@ import { assign } from "lodash";
 const colors = [
   "#252525",
   "#525252",
-  "#737373",
+  "#000051",
   "#969696",
   "#bdbdbd",
   "#d9d9d9",
@@ -15,7 +15,7 @@ const grey = "#969696";
 // Typography
 const sansSerif = "'Gill Sans', 'Seravek', 'Trebuchet MS', sans-serif";
 const letterSpacing = "normal";
-const fontSize = 8;
+const fontSize = 10;
 
 // Layout
 const baseProps = {
@@ -196,12 +196,12 @@ const Theme = {
         stroke: "transparent",
         strokeWidth: 1,
       },
-      labels: assign({}, baseLabelStyles, { padding: 20 }),
+      labels: assign({}, baseLabelStyles, { padding: 10 }),
     },
     colorScale: colors,
-    width: 400,
-    height: 400,
-    padding: 50,
+    width: 250,
+    height: 250,
+    padding: 40,
   },
   scatter: assign(
     {
@@ -257,5 +257,4 @@ const Theme = {
     baseProps
   ),
 };
-
 export default Theme;
