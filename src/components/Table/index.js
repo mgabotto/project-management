@@ -44,7 +44,6 @@ const Table = () => {
   return (
     <TableContainer>
       <Console update={update} handleSearch={handleSearch} />
-      {/* {!data && <img src={loadingGIF} alt="loading" />} */}
       {!data && <Loader className="lds-dual-ring">Cargando</Loader>}
       {data && <Data data={searchfield} deleteTask={deleteTask} />}
     </TableContainer>

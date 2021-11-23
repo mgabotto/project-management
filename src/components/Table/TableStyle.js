@@ -17,26 +17,26 @@ export const StyledTable = styled.table`
   font-family: Arial, Helvetica, sans-serif;
   background-color: ${(props) => props.theme.colors.primary};
   padding: 10px;
-  border-radius: 10px;
   font-size: ${(props) => props.theme.fontSizes.medium};
 
   th {
     height: 50px;
     width: 140px;
     background-color: ${(props) => props.theme.colors.primary};
-    border-radius: 30px;
   }
 
   tr {
     background-color: ${(props) => props.theme.colors.primary};
     text-align: center;
-    &:hover {
-      background-color: ${(props) => props.theme.colors.secondary};
-    }
   }
-
+  .text {
+    background-color: ${(props) => props.theme.colors.tertiary};
+    color: white;
+    min-width: min-content;
+    padding: 5px;
+  }
   td {
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;

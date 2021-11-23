@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, NavWrapper, LinkWrapper } from "./NavbarStyle";
 
-const NavBar = () => {
+const NavBarr = () => {
   return (
     <>
       <NavWrapper>
@@ -15,4 +15,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarr;

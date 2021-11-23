@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Stages from "./Stages";
 import { StageRow } from "./ProcessStagesStyle";
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import ProcessDescription from "./ProcessDescription";
 
 const ProcessStages = ({ task, deleteRow }) => {
@@ -22,10 +22,11 @@ const ProcessStages = ({ task, deleteRow }) => {
     <>
       <StageRow>
         <td className="text">{macroproceso}</td>
-        <td className="text" onClick={displayDescription}>
-          {proceso}
-        </td>
+        <td className="text">{proceso}</td>
         <Stages task={task} />
+        <td>
+          <EditOutlined onClick={displayDescription} />
+        </td>
         <td>
           <DeleteOutlined
             className="deleteBtn"

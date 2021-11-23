@@ -6,7 +6,7 @@ export const DescriptionRow = styled.tr`
   font-size: ${(props) => props.theme.fontSizes.small};
 
   td {
-    background-color: ${(props) => props.theme.colors.lightblue};
+    background-color: ${(props) => props.theme.colors.secondary};
     padding: 10px auto;
     height: fit-content;
   }
