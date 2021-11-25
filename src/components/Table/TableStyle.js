@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const TableContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
   @media (max-width: 768px) {
     overflow: scroll;
     height: 80vh;
@@ -11,8 +8,12 @@ export const TableContainer = styled.div`
 `;
 
 export const StyledTable = styled.table`
-  width: fit-content;
-  margin: 10px auto;
+  position: absolute;
+  top: 100px;
+  overflow: scroll;
+
+  max-width: 100%;
+  margin: 10px;
   border-collapse: separate;
   font-family: Arial, Helvetica, sans-serif;
   background-color: ${(props) => props.theme.colors.primary};

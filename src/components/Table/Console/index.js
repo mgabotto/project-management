@@ -22,6 +22,12 @@ const Console = ({ update, handleSearch }) => {
 
   return (
     <ConsoleWrapper>
+      <Search>
+        <StyledInput
+          placeholder="Buscar proceso"
+          onChange={(event) => handleSearch(event.target.value)}
+        />
+      </Search>
       <StyledButton
         type="primary"
         shape="round"
@@ -32,12 +38,6 @@ const Console = ({ update, handleSearch }) => {
       >
         Nuevo Proceso
       </StyledButton>
-      <Search>
-        <StyledInput
-          placeholder="Buscar proceso"
-          onChange={(event) => handleSearch(event.target.value)}
-        />
-      </Search>
     </ConsoleWrapper>
   );
 };

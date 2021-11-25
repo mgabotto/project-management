@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 export const NavWrapper = styled.nav`
   display: flex;
+  position: fixed;
+  width: 100vw;
+
   justify-content: flex-end;
   background-color: ${(props) => props.theme.colors.dark};
 `;
